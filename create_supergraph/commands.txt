@@ -1,0 +1,7 @@
+Run the following commands to generate supergraph from subgraphs
+
+sudo npm install -g @apollo/rover 
+
+export APOLLO_ELV2_LICENSE=accept
+
+sudo rover supergraph compose --config supergraph-config.yaml > supergraph.graphql

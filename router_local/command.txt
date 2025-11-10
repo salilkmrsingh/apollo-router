@@ -1,0 +1,36 @@
+Run below command to start the router in dev mode
+
+./router --dev --config router.yaml --supergraph supergraph.graphql
+
+--------------------------------------------------------------------------
+
+We can run apollo router integrated with graphos.
+
+//setup the api key with apollo studio
+rover config auth
+
+//create a supergraph called 'my-supergraph' in graphos registery with version 'current'
+rover graph create my-supergraph --variant current
+
+//Publish subgraphs
+
+rover subgraph publish my-supergraph@current \
+  --name products \
+  --schema ./products.graphql \
+  --routing-url https://products.example.com/graphql
+
+//Fetch the composed supergraph
+
+rover supergraph fetch my-supergraph@current
+
+//connect to apollo router by setting in router.yaml
+supergraph:
+  source:
+    from:
+      uplink:
+        graphref: my-supergraph@current
+        api_key: ${APOLLO_KEY}
+
+//run the router
+export APOLLO_KEY="service:<your-service-key>"
+./router --config router.yaml

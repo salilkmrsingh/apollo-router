@@ -1,0 +1,11 @@
+| Feature                | **Apollo Gateway**                                  | **Apollo Router**                                                   |
+| ---------------------- | --------------------------------------------------- | ------------------------------------------------------------------- |
+| **Language**           | JavaScript/TypeScript (Node.js)                     | Rust (compiled binary)                                              |
+| **Release Year**       | 2019 (Federation v1)                                | 2022+ (Federation v2)                                               |
+| **Performance**        | Slower (Node process)                               | Extremely fast (Rust, compiled)                                     |
+| **Federation Version** | Supports Federation v1 and partial v2               | Built for Federation v2+                                            |
+| **Deployment**         | Runs as a Node.js server (often with Apollo Server) | Runs as a standalone binary (no Node needed)                        |
+| **Configuration**      | Code-driven (JavaScript config)                     | YAML / Environment-driven                                           |
+| **Extensibility**      | Custom logic via JS plugins                         | Plugin architecture via config + WASM (WebAssembly) extensions      |
+| **Metrics / Tracing**  | Uses Apollo Server’s built-in plugins               | Native high-performance telemetry (OpenTelemetry, Prometheus, etc.) |
+| **License**            | MIT (open source)                                   | ELv2 (Elastic License v2) — free to use, but with some restrictions |
